@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/startScreen">
+
+    <fragment
+        android:id="@+id/startScreen"
+        android:name="com.example.androidquizapplication.StartScreen"
+        android:label="Welcome to Quiz application"
+        tools:layout="@layout/fragment_start_screen">
+        <action
+            android:id="@+id/action_startScreen_to_teacherBanks"
+            app:destination="@id/teacherBanks" />
+        <action
+            android:id="@+id/action_startScreen_to_quizzes"
+            app:destination="@id/quizzes" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherBanks"
+        android:name="com.example.androidquizapplication.TeacherBanks"
+        android:label="Question banks"
+        tools:layout="@layout/fragment_teacher_banks">
+        <action
+            android:id="@+id/action_teacherBanks_to_teacherNewBank"
+            app:destination="@id/teacherNewBank" />
+        <action
+            android:id="@+id/action_teacherBanks_to_questions"
+            app:destination="@id/questions" />
+        <action
+            android:id="@+id/action_teacherBanks_to_startScreen"
+            app:destination="@id/startScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherNewBank"
+        android:name="com.example.androidquizapplication.TeacherNewBank"
+        android:label="Create bank"
+        tools:layout="@layout/fragment_teacher_new_bank">
+        <action
+            android:id="@+id/action_teacherNewBank_to_teacherBanks"
+            app:destination="@id/teacherBanks" />
+    </fragment>
+    <fragment
+        android:id="@+id/questions"
+        android:name="com.example.androidquizapplication.Questions"
+        android:label="fragment_questions"
+        tools:layout="@layout/fragment_questions" >
+        <argument android:name="bankName" />
+        <action
+            android:id="@+id/action_questions_to_createQuestion"
+            app:destination="@id/createQuestion" />
+        <action
+            android:id="@+id/action_questions_to_teacherBanks"
+            app:destination="@id/teacherBanks" />
+        <action
+            android:id="@+id/action_questions_to_editOrDelete"
+            app:destination="@id/editOrDelete" />
+    </fragment>
+    <fragment
+        android:id="@+id/createQuestion"
+        android:name="com.example.androidquizapplication.CreateQuestion"
+        android:label="Create question"
+        tools:layout="@layout/fragment_create_question">
+        <argument
+            android:name="bankName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_createQuestion_to_createOptions"
+            app:destination="@id/createOptions" />
+        <action
+            android:id="@+id/action_createQuestion_to_questions"
+            app:destination="@id/questions" />
+    </fragment>
+    <fragment
+        android:id="@+id/createOptions"
+        android:name="com.example.androidquizapplication.CreateOptions"
+        android:label="Add options"
+        tools:layout="@layout/fragment_create_options">
+        <argument
+            android:name="question"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_createOptions_to_specifyRightAnswer"
+            app:destination="@id/specifyRightAnswer" />
+        <argument
+            android:name="bankName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_createOptions_to_questions"
+            app:destination="@id/questions" />
+    </fragment>
+    <fragment
+        android:id="@+id/specifyRightAnswer"
+        android:name="com.example.androidquizapplication.SpecifyRightAnswer"
+        android:label="Specify correct answer"
+        tools:layout="@layout/fragment_specify_right_answer">
+        <argument
+            android:name="question"
+            app:argType="string" />
+        <argument
+            android:name="listOfOptions"
+            app:argType="string[]" />
+        <argument
+            android:name="bankName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_specifyRightAnswer_to_questions"
+            app:destination="@id/questions" />
+    </fragment>
+    <fragment
+        android:id="@+id/editOrDelete"
+        android:name="com.example.androidquizapplication.EditOrDelete"
+        android:label="Edit question">
+        <argument
+            android:name="question"
+            app:argType="string" />
+        <argument
+            android:name="bankName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_editOrDelete_to_questions"
+            app:destination="@id/questions" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizzes"
+        android:name="com.example.androidquizapplication.Quizzes"
+        android:label="Choose quiz you want to take"
+        tools:layout="@layout/fragment_quizzes">
+        <action
+            android:id="@+id/action_quizzes_to_quiz"
+            app:destination="@id/quiz" />
+        <action
+            android:id="@+id/action_quizzes_to_startScreen"
+            app:destination="@id/startScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/quiz"
+        android:name="com.example.androidquizapplication.Quiz"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" >
+        <argument
+            android:name="bankName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_quiz_to_result"
+            app:destination="@id/result" />
+        <action
+            android:id="@+id/action_quiz_to_quizzes"
+            app:destination="@id/quizzes" />
+    </fragment>
+    <fragment
+        android:id="@+id/result"
+        android:name="com.example.androidquizapplication.Result"
+        android:label="Your result"
+        tools:layout="@layout/fragment_result">
+        <argument
+            android:name="numberOfCorrectAnswers"
+            app:argType="integer" />
+        <argument
+            android:name="numberOfQuestions"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_result_to_quizzes"
+            app:destination="@id/quizzes" />
+        <action
+            android:id="@+id/action_result_to_quiz"
+            app:destination="@id/quiz" />
+        <argument
+            android:name="bankName"
+            app:argType="string" />
+    </fragment>
+</navigation>

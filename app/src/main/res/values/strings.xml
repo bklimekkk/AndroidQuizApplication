@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">AndroidQuizApplication</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bank">bank</string>
+    <string name="enter_option_1">Enter option 1</string>
+    <string name="add_option">Add option</string>
+    <string name="next">Next</string>
+    <string name="enter_question">Enter question</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="progress_1_10">Progress: 1/10</string>
+    <string name="exit_quiz">Exit quiz</string>
+    <string name="your_result">Your result</string>
+    <string name="result">Result</string>
+    <string name="done">Done</string>
+    <string name="try_again">Try again</string>
+    <string name="question">Question</string>
+    <string name="provide_right_answer_for_the_question_above">Provide right answer for the question above</string>
+    <string name="finish">Finish</string>
+    <string name="cancel_operation">Cancel operation</string>
+    <string name="select_option">Select option:</string>
+    <string name="teacher">Teacher</string>
+    <string name="student">Student</string>
+    <string name="modes_menu">Modes menu</string>
+    <string name="banks_list">Banks list</string>
+    <string name="enter_name_of_the_new_bank">Enter name of the new bank</string>
+    <string name="create_bank">Create bank</string>
+    <string name="enter_bank_name">Enter bank name</string>
+    <string name="question2">question2</string>
+    <string name="add_bank">Add bank</string>
+    <string name="add_question">Add question</string>
+</resources>
